@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 // Route Utama
 Route::get('/', function () {
@@ -21,3 +22,8 @@ Route::get('/cart', function () {
 Route::get('/checkout', function () {
     return 'Ini route checkout';
 });
+
+// Produk
+Route::get('/produk', [ProductController::class, 'index']);
+Route::get('/produk/create', [ProductController::class, 'create']);
+Route::post('/produk', [ProductController::class, 'store']);
